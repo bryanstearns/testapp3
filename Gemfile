@@ -5,6 +5,7 @@ gem 'json'
 gem 'mysql2'
 gem 'rails', '3.2.1'
 gem 'unicorn'
+gem 'delayed_job_active_record'
 
 group :assets do
   # Gems used only for assets and not required
