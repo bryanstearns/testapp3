@@ -1,10 +1,19 @@
+set :stages, Dir.glob("config/deploy/*.rb").map{|x| File.basename(x, ".rb")}
+set :default_stage, 'hack'
+require 'bundler/capistrano'
+require 'capistrano/ext/multistage'
+require 'fileutils'
+
 set :application, "testapp3"
 set :scm, :git
-set :repository,  "git@github.com:bryanstearns/testapp3.git"
+set :repository,  "https://github.com/bryanstearns/testapp3.git"
 
-role :web, ""
-role :app, ""
-role :db,  "", :primary => true # This is where Rails migrations will run
+set :copy_exclude, [
+  ".git", ".svn", ".DS_Store", "config/database.yml",
+  "config/biglietto.yml"
+]
+set :use_sudo, false
+
 
 # If you are using Passenger mod_rails uncomment this:
 # namespace :deploy do

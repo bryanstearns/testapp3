@@ -4,6 +4,7 @@ gem 'jquery-rails'
 gem 'json'
 gem 'mysql2'
 gem 'rails', '3.2.1'
+gem 'rake'
 gem 'unicorn'
 gem 'delayed_job_active_record'
 
@@ -19,6 +20,8 @@ end
 
 group :development do
   gem 'capistrano'
+  gem 'capistrano-ext'
+  gem 'capistrano-unicorn'
   # gem 'ruby-debug'
 end
 
